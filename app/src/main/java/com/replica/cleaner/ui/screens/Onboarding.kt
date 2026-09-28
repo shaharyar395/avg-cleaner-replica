@@ -78,6 +78,7 @@ import com.replica.cleaner.core.Permissions
 import com.replica.cleaner.core.formatBytes
 import com.replica.cleaner.core.formatPercent
 import com.replica.cleaner.ui.CleanerViewModel
+import com.replica.cleaner.ui.util.clickOpenPrivacyPolicy
 import com.replica.cleaner.ui.components.CleanerCard
 import com.replica.cleaner.ui.components.CleanerTopBar
 import com.replica.cleaner.ui.components.PrimaryButton
@@ -203,7 +204,8 @@ fun GetStartedScreen(
             },
             style = MaterialTheme.typography.bodyMedium,
             color = colors.textSecondary,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clickOpenPrivacyPolicy()
         )
         Spacer(Modifier.weight(1f))
         PrimaryButton(tr("GET STARTED"), onGetStarted)

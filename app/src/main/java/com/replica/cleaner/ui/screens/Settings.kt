@@ -52,7 +52,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -79,8 +79,8 @@ import com.replica.cleaner.ui.theme.AccentChoice
 import com.replica.cleaner.ui.theme.Amber
 import com.replica.cleaner.ui.theme.LocalCleanerColors
 import com.replica.cleaner.ui.theme.ThemeMode
+import com.replica.cleaner.ui.util.clickOpenPrivacyPolicy
 import kotlinx.coroutines.launch
-import androidx.compose.ui.platform.LocalContext
 import android.content.Intent
 import android.widget.Toast
 import com.replica.cleaner.l10n.AppLanguage
@@ -774,7 +774,6 @@ fun PersonalPrivacyScreen(vm: CleanerViewModel, onBack: () -> Unit) {
     val shareThird by vm.prefs.shareUsageThirdParty.collectAsStateWithLifecycle(initialValue = false)
     val colors = LocalCleanerColors.current
     val scope = androidx.compose.runtime.rememberCoroutineScope()
-    val uriHandler = LocalUriHandler.current
 
     Column(
         modifier = Modifier
@@ -810,9 +809,7 @@ fun PersonalPrivacyScreen(vm: CleanerViewModel, onBack: () -> Unit) {
                 color = colors.textSecondary,
                 modifier = Modifier
                     .padding(horizontal = 20.dp)
-                    .clickable {
-                        uriHandler.openUri("https://www.avg.com/privacy")
-                    }
+                    .clickOpenPrivacyPolicy()
             )
 
             SectionLabel(tr("Improvements"))

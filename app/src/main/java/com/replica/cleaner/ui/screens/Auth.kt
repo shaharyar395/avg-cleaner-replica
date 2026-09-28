@@ -68,6 +68,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.replica.cleaner.l10n.LocalL10n
 import com.replica.cleaner.l10n.tr
 import com.replica.cleaner.ui.CleanerViewModel
+import com.replica.cleaner.ui.util.clickOpenPrivacyPolicy
 import com.replica.cleaner.ui.components.CleanerTopBar
 import com.replica.cleaner.ui.components.Divider
 import com.replica.cleaner.ui.components.PrimaryButton
@@ -668,7 +669,8 @@ private fun SignUpEmailScreen(
                     append(".")
                 },
                 style = MaterialTheme.typography.bodySmall,
-                color = Color(0xFF666666)
+                color = Color(0xFF666666),
+                modifier = Modifier.clickOpenPrivacyPolicy()
             )
             Spacer(Modifier.height(16.dp))
             Box(
@@ -961,7 +963,9 @@ private fun GoogleAccountPickerDialog(
                 },
                 style = MaterialTheme.typography.bodySmall,
                 color = Color(0xFF5F6368),
-                modifier = Modifier.padding(horizontal = 20.dp)
+                modifier = Modifier
+                    .padding(horizontal = 20.dp)
+                    .clickOpenPrivacyPolicy()
             )
             Spacer(Modifier.height(8.dp))
             TextButton(onClick = onDismiss, modifier = Modifier.align(Alignment.End)) {

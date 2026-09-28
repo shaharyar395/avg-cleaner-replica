@@ -61,6 +61,7 @@ import com.replica.cleaner.ui.components.CleanerTopBar
 import com.replica.cleaner.ui.components.PrimaryButton
 import com.replica.cleaner.ui.theme.Amber
 import com.replica.cleaner.ui.theme.LocalCleanerColors
+import com.replica.cleaner.ui.util.clickOpenPrivacyPolicy
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -412,7 +413,9 @@ fun FeatureUpsellPaywall(
                     style = MaterialTheme.typography.bodySmall,
                     color = colors.textSecondary,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickOpenPrivacyPolicy()
                 )
                 Spacer(Modifier.height(16.dp))
             }

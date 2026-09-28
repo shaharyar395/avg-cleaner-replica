@@ -2,16 +2,15 @@
 <resources>
     <string name="app_name">AVG Cleaner+</string>
 
-    <!--
-      AdMob IDs.
-      Currently Google SAMPLE / TEST IDs so banners load without your own AdMob app.
-      Replace with your real AdMob App ID + Banner unit ID before Play Store release:
-      https://apps.admob.com/
-    -->
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_banner_home">ca-app-pub-3940256099942544/6300978111</string>
-    <!-- Google sample interstitial — replace with your AdMob interstitial unit for production -->
-    <string name="admob_interstitial">ca-app-pub-3940256099942544/1033173712</string>
+    <!-- Production AdMob (MOBAPPS / DATA CLEANER APP sheet — AdMob Mediation) -->
+    <string name="admob_app_id">ca-app-pub-9297250663056879~1961673643</string>
+    <string name="admob_banner_home">ca-app-pub-9297250663056879/3270885884</string>
+    <string name="admob_interstitial">ca-app-pub-9297250663056879/7217121324</string>
+    <string name="admob_rewarded">ca-app-pub-9297250663056879/1770101953</string>
+    <string name="admob_app_open">ca-app-pub-9297250663056879/9162515973</string>
+    <string name="admob_native">ca-app-pub-9297250663056879/9244518862</string>
+
+    <string name="privacy_policy_url">https://sites.google.com/view/mob-apps-inc/privacy-policy</string>
 
     <!-- Onboarding -->
     <string name="onb_title">Your cleanup is just two steps away</string>

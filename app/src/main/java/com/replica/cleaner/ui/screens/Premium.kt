@@ -98,6 +98,7 @@ import com.replica.cleaner.ui.components.CleanerTopBar
 import com.replica.cleaner.ui.components.PrimaryButton
 import com.replica.cleaner.ui.components.SecondaryButton
 import com.replica.cleaner.ui.theme.Amber
+import com.replica.cleaner.ui.util.clickOpenPrivacyPolicy
 import com.replica.cleaner.ui.theme.DangerRed
 import com.replica.cleaner.ui.theme.LocalCleanerColors
 import kotlinx.coroutines.Job
@@ -574,6 +575,7 @@ private fun FirstRunPremiumPlans(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 20.dp)
+                    .clickOpenPrivacyPolicy()
             )
         }
     }
@@ -804,6 +806,7 @@ private fun UpgradePremiumPlans(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 8.dp)
+                    .clickOpenPrivacyPolicy()
             )
         }
 
@@ -970,7 +973,9 @@ private fun ExclusiveOfferScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = Color(0xFF888888),
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickOpenPrivacyPolicy()
             )
         }
     }

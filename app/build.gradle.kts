@@ -9,11 +9,12 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.replica.cleaner"
+        // Package name from MOBAPPS DATA CLEANER APP sheet (AdMob + Firebase)
+        applicationId = "com.mob.ccleaner.storage.avg.cleaner.phone.androidcleaner"
         minSdk = 26
         targetSdk = 35
-        versionCode = 47
-        versionName = "1.0.46"
+        versionCode = 49
+        versionName = "1.0.48"
         vectorDrawables { useSupportLibrary = true }
         setProperty("archivesBaseName", "cleaner1")
     }
@@ -24,7 +25,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         debug {
-            applicationIdSuffix = ".debug"
+            // No applicationIdSuffix — must match AdMob / Firebase package exactly
         }
     }
 

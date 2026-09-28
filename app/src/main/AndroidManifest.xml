@@ -72,7 +72,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Required by Google Mobile Ads SDK. Uses test App ID until you replace it. -->
+        <!-- Required by Google Mobile Ads SDK (production AdMob App ID). -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
