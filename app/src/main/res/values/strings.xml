@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AVG Cleaner+</string>
+
+    <!--
+      AdMob IDs.
+      Currently Google SAMPLE / TEST IDs so banners load without your own AdMob app.
+      Replace with your real AdMob App ID + Banner unit ID before Play Store release:
+      https://apps.admob.com/
+    -->
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_banner_home">ca-app-pub-3940256099942544/6300978111</string>
+    <!-- Google sample interstitial — replace with your AdMob interstitial unit for production -->
+    <string name="admob_interstitial">ca-app-pub-3940256099942544/1033173712</string>
+
+    <!-- Onboarding -->
+    <string name="onb_title">Your cleanup is just two steps away</string>
+    <string name="onb_step1_title">Give us access</string>
+    <string name="onb_step1_body">We need permission to clean your photos, media, and files.</string>
+    <string name="onb_step2_title">Scan for junk</string>
+    <string name="onb_step2_body">We\'ll show you what can be safely removed to free up space.</string>
+    <string name="onb_see_results">SEE RESULTS</string>
+    <string name="onb_ready">You\'re all set and ready to clean!</string>
+
+    <string name="consent_title">Your trusted phone cleaner</string>
+    <string name="consent_body">Personalized advertising allows us to offer some features for free. If you upgrade, you won\'t see ads.</string>
+    <string name="consent_continue">CONTINUE WITH ADS</string>
+    <string name="upgrade">UPGRADE</string>
+
+    <!-- Permissions -->
+    <string name="perm_missing_title">%1$d permissions missing</string>
+    <string name="perm_missing_body">We\'ll need you to allow some permissions so we can make Cleaner work properly for you.</string>
+    <string name="perm_files_title">All files access</string>
+    <string name="perm_files_body">This is an essential permission for us to find and clean junk data, and categorize all photos, media, and files on your device.</string>
+    <string name="perm_usage_title">Usage access</string>
+    <string name="perm_usage_body">This allows us to clean caches, identify unused apps, and detect resource drainers.</string>
+    <string name="perm_notif_title">Notifications</string>
+    <string name="perm_notif_body">This allows us to give you tips about cleaning, apps, photos, etc. You can easily pick and choose what interests you once enabled.</string>
+    <string name="go_to_settings">GO TO SETTINGS</string>
+    <string name="allow_permission">ALLOW PERMISSION</string>
+    <string name="not_now">NOT NOW</string>
+
+    <!-- Home -->
+    <string name="free_space">Free space</string>
+    <string name="free_up_to">Free up to %1$s</string>
+    <string name="quick_clean">QUICK CLEAN</string>
+    <string name="unneeded_files">Unneeded files</string>
+    <string name="hidden_caches">Hidden caches</string>
+    <string name="files_to_review">Files to review</string>
+    <string name="customize">Customize</string>
+    <string name="sleep_mode">Sleep Mode</string>
+    <string name="tips">Tips</string>
+    <string name="media">Media</string>
+    <string name="apps">Apps</string>
+
+    <!-- Nav -->
+    <string name="nav_home">Home</string>
+    <string name="nav_tools">Tools</string>
+    <string name="nav_storage">Storage</string>
+    <string name="nav_account">Account</string>
+
+    <!-- Quick clean -->
+    <string name="finding_junk">Finding junk…</string>
+    <string name="finish_cleaning">FINISH CLEANING</string>
+    <string name="selected_fmt">%1$d SELECTED (%2$s)</string>
+
+    <!-- Notification channels -->
+    <string name="chan_cleaning">Junk Cleaning</string>
+    <string name="chan_apps">Applications</string>
+    <string name="chan_photos">Photos</string>
+    <string name="chan_other">Other files</string>
+    <string name="chan_progress">Cleaning progress</string>
+</resources>

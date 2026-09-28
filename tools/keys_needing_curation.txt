@@ -1,0 +1,509 @@
+%d bad photos found
+%d empty folders
+%d files in Downloads
+%d old photos
+%d optimizable images
+%d permissions missing
+%d screenshots found
+%d similar photos
+%d space saving tips
+%d videos using %s
+%s can be cleaned
+%s can be reviewed
+A powerful cleaner that removes hidden junk.
+ABOUT AUTO CLEANING
+ACTIVATE
+ALLOW
+ALLOW PERMISSION
+APP INFO
+AVG Cleanup
+AVG recommends
+About this app
+Access these features:
+Activating...
+Activation code
+Ad caches
+Ad unavailable — tap X when ready
+Add a cloud storage
+Add a payment method to your Google Account to complete your purchase.
+Add account
+Add credit or debit card
+Add custom shortcuts to your dashboard for quick access to your favorite info.
+Added more than a year ago
+After (est.)
+Agreement
+All apps
+All features unlocked.
+All files access
+Allow all files access so Quick Clean can find and delete real junk.
+Allow file access
+Almost ready...
+Already have a subscription?
+Already purchased?
+Always
+An up-to-date report of newly installed applications. Delivered once a week.
+Android
+App Locking
+App leftovers
+Applications
+Apps Overview
+Apps create temporarily needed files called 'caches', but afterward, when you don't need them anymore, caches just take up space. Hidden caches (sometimes called private caches) take up much more space and are more tricky to delete, while visible caches take up less space and can be removed easily. Usually, you need to open your settings to remove hidden app caches one-by-one, but Deep Clean lets you clean hidden caches for many apps simultaneously.
+Archives
+At your service
+Audio
+Auto Cleaning
+Auto Cleaning only works for items that are safe to delete without review. Since Auto Cleaning runs in the background, you can't double-check before cleaning items in the categories you select.
+
+To make sure we don't remove something you need, we don't automatically clean similar photos, unused apps, or large videos.
+Auto Cleaning schedules Quick Clean and related cleanup so junk is removed without opening the app each time.
+Automatic Cleaning
+Automatically scan for bad, similar or optimizable photos you might want to clean.
+Available
+Avast Direct support
+Bad photos
+Bad quality
+Battery
+Battery monitoring
+Before
+Best recommendations for you.
+Big files
+Billed monthly
+Bluetooth
+Browser Cleaner
+Browser data
+Browser data sizes are measured in Quick Clean. Open the locked Browser data row to jump into each browser's storage screen.
+By proceeding, you accept AVG's 
+CANCEL
+CHECK NOW
+CONNECT
+CONTINUE
+CONTINUE WITH ADS
+CONTINUE WITH PREMIUM
+CPU activity
+Can I change the schedule?
+Can I rearrange shortcuts?
+Can force stopped apps restart by themselves?
+Change sorting
+Check device stats to keep your phone running smoothly.
+Check what's taking up the most room and decide what to keep.
+Choose account for AVG Cleaner
+Choose how often you want to receive notifications.
+Choose which categories to scan and review during every Quick Clean.
+Clean unimportant Google data
+Clean unimportant browser data
+Cleaning tips
+Cleaning…
+Cleans browser data and hidden memory
+Cleanup Premium
+Clear all your browsing records for more space and privacy.
+Clears browsing data and hidden web clutter
+Close
+Close ad
+Cloud Transfers
+Commercial break
+Compresses images to reclaim space, keeps the memories
+Connected
+Connected services
+Contact us on our website
+Control size and quality of photos
+Couldn't finish the scan
+Custom Dashboard
+Custom dashboard
+Cut distractions by pausing multiple apps — no activity or notifications until you reopen them.
+DELETE SELECTED
+DESELECT ALL
+DISCONNECT
+DONE
+Daily
+Data
+Date
+Deep Clean
+Deep Clean walks hidden caches and browser leftovers. Start Quick Clean to review and remove what Android allows.
+Delete files after transfer
+Demo tip: use code AVG-DEMO to unlock Premium.
+Device
+Direct support
+Disabled
+Discover other tools to protect your device and boost your privacy.
+Discover unused apps, storage hogs, and performance drainers.
+Documents
+Downloads
+Drainers
+Dropbox
+Dropbox connected
+Dropbox disconnected
+Email
+Empty folders
+Enable %s notifications
+Enabled
+End User Licence Agreement
+Enter a valid activation code.
+Enter a valid email address.
+Enter the activation code from your purchase receipt or another AVG product.
+Enter the code you received after purchase from another device or AVG app.
+Every 2 weeks
+Every 3 days
+FAQs
+FINISH CLEANING
+FREE SPACE FROM SELECTED
+Feature
+Files that are at least 100 MB and were created at least one month ago.
+Files that you already moved to the Trash folder.
+Files that you downloaded from the internet.
+Files to review
+Files you downloaded and may no longer need.
+Filter
+Find unwanted photos
+Finding junk…
+Folders with nothing inside
+Folders with nothing inside.
+For sure! Browsing records are not important to your device or how it works, so you probably won't notice that they're gone.
+Force stop stops all app processes on the spot. Usually you need to open your settings to Force stop each app one-by-one, but Sleep Mode lets you stop multiple apps at once.
+Force stops apps you don't use
+Force stops unused apps to optimize your device.
+Forgot password?
+Found a few big items. Take a look.
+Free
+Free space
+Free up space fast — clear junk, tidy storage, and organize your device.
+Free up to %s
+Frequency
+Friday
+From our customers
+GO TO SETTINGS
+GRANT ACCESS
+Gathering tips…
+Get %s more space
+Get AVG Antivirus to help protect you from harmful viruses and malware.
+Get more info about AVG subscriptions and how to redeem them 
+Get rid of clutter and unused files
+Get shortcuts to your favorite info
+Get to know the Premium\nfeatures
+Get warned when a link is dangerous
+Give us access
+Go Premium to shrink your photos and free up storage space.
+Google Drive
+Google Drive connected
+Google Drive disconnected
+Google Play
+Granted
+Growing
+Growing apps
+Help & Feedback
+Help & info
+Hidden caches
+Hide password
+How does Deep Clean work?
+How does Force stop work?
+How does it work?
+How much time you spent in each app?
+INSTALL FOR FREE
+INSTALL VPN
+IP address
+Idle
+If you've purchased a subscription from Google Play, this can restore it.
+If your subscription is linked to this account, it will activate automatically.
+Ignore this offer
+Images
+Improve your browsing experience by clearing out unnecessary data and hidden junk.
+Improvements
+In your system settings, tap the toggle to allow all files access for AVG Cleaner.
+Include SD card when scanning storage space. This may slow down the scanning speed.
+Includes log files, junk files imported from other systems, and other temporary data.
+Installed
+Installed APKs
+Installed apps
+Internal storage
+Is Auto Cleaning safe?
+Is it safe to delete browsing records?
+Is it safe to delete search records?
+Is this a Premium feature?
+It lets you pin shortcuts to the tools and info you use most on Home.
+Junk Cleaning
+Junk files
+Keep files for this long before cleaning
+Keep the best, drop the rest
+LEARN MORE
+Large files
+Large files to move
+Large old files
+Large videos
+Large videos use the most space. Select clips to remove local copies after you've backed them up.
+Last 7 days
+Last Known Location
+Last used
+Learn how we process your data in our 
+Leftover files after you uninstall apps from your device.
+Leftover installation files after new apps are installed.
+Let me know if there's unimportant data left behind after uninstalling an app.
+Level
+Lighter videos, same moments
+Lighter videos, same moments. Free space by reviewing oversized clips.
+Loading ad…
+Loading…
+Locate your device after it dies
+Low storage
+MANAGE ACCOUNT
+MANAGE CLOUD SERVICES
+MONTHLY
+Make your app match your style
+Makes cleaning automatic, not manual
+Measure how I use my battery so I can see insights about how to save power.
+Media
+Memory
+Mobile data
+Model
+Monday
+Monthly
+More by AVG
+Move down
+Move up
+NOT NOW
+Name
+Needed to show Photos, Audio, Video and Other files from this device.
+Network
+Network SSID
+Never
+New installs
+No Google Play purchases found
+No advertisement in this app
+No advertisements in the app
+No cloud service connected
+No large files found yet. Grant All files access and scan again.
+No large photos found to optimize.
+Nope! There's nothing in your cache files that your apps can't recreate if needed.
+
+But be careful to clean up these files regularly, otherwise your device can collect a lot of junk files over time.
+Nope! When you force stop apps, there's no risk of losing data, preferences, or account info.
+
+But don't forget — force stopped apps can't send you notifications or work in the background, so you shouldn't force stop apps that send important info (like security or messaging apps).
+Not installed
+Not present
+Not used
+Nothing found here.
+Notification
+Notification access is needed to display apps sending you most notifications
+Notification threshold
+Notifications
+Notifications and Reports
+Notify me when you clean this much or more.
+Notifying
+OPEN QUICK CLEAN
+OPTIMIZE
+OPTIMIZE PHOTOS
+OR
+Off
+Old photos
+On
+Open source
+Open this feature from Tools.
+Open-source libraries
+Optimizable images
+Optimizable photos
+Optimized originals
+Other
+Other files
+PREMIUM
+PUT %d APPS TO SLEEP
+Password
+Password must be at least 6 characters.
+Personal privacy
+Personalized advertising allows us to offer some features for free. If you upgrade, you won't see ads.
+Photo Optimizer
+Photo Vault
+Photo analysis
+Photos
+Photos from your camera that we detected as blurry, dark, or low quality.
+Photos that show what's visible on your device display at the moment they're taken.
+Pick apps to force-stop. Android will confirm each one in system settings.
+Preferences
+Premium
+Premium Plus
+Premium feature
+Premium includes:
+Preparing…
+Priority of space saving tips
+Privacy Policy
+Processing purchase...
+Product Policy
+Protect personal photos with unlimited coverage
+Protect your phone from hackers
+QUICK CLEAN
+Quick Clean
+Quick Clean settings
+REMOVE ADS
+REVIEW AND CLEAN
+Rarely used apps
+Read more in our Consent Policy.
+Receive quick replies from support
+Redeem subscription
+Reduce Load
+Reduces background load by putting apps to sleep
+Remove ads
+Removes hidden junk files
+Reorder
+Reports
+Residual files
+Restore from Google Play
+Restoring purchases...
+SAVE 72%
+SD card
+SEE ALL DETAILS
+SEE RESULTS
+SELECT ALL
+SELECT APPS
+SELECT FILES TO TRANSFER
+SET THEME
+SETTINGS
+SHOW ALL
+SIGN IN WITH GOOGLE
+SIGN OUT
+START HERE
+Saturday
+Save 10%
+Saved data collected by your browsers when you browse or search online.
+Scan SD card
+Scan for junk
+Scanning apps…
+Scanning photos
+Scanning photos…
+Schedule automatic scans to stay safer
+Screen time
+Screenshots
+Secure your sensitive apps
+Security Premium
+See what you can do with this app
+Select AVG Cleaner+
+Select how often we should clean automatically.
+Sensitive photos
+Sent when an app's storage grows unusually fast.
+Sent when apps have not been opened in a month.
+Sent when at least 4 files have occupied 50 MB or more space in the past week.
+Sent when at least 4 videos have occupied 50 MB or more in the past week.
+Sent when blurry or dark photos are detected.
+Sent when less than 5% of your storage space is left.
+Sent when near-duplicate shots pile up.
+Sent when new applications are installed.
+Sent when screenshots take up noticeable space.
+Sent when there's 10 MB or more that you can safely clean.
+Sent when there's at least 4 document files in your Download folder.
+Set once and never worry again
+Set once, never worry again
+Set up a schedule so AVG Cleaner can do its magic automatically.
+Set up preferences for all your tools
+Set up theme to your liking
+Settings
+Share app-usage data with 3rd-party analytics tools to improve this app.
+Share app-usage data with AVG to help us with new product development.
+Should I be concerned about deleting cache files?
+Should I be concerned about force stopping apps?
+Show password
+Shrink large photos, spot duplicates, and clear old or low-quality shots.
+Shrink your photos and free up storage space while keeping the memories.
+Sign In
+Sign in to use a connected subscription or receive account alerts on this device.
+Sign up
+Signed in
+Signed in as
+Signed in on this device
+Similar photos
+Simulate successful purchase
+Size
+Size / Total size
+Skip
+Sleep Mode
+Sleep Mode uses Force stop action and puts apps to sleep until you need them again. Force stopped apps can't access system resources and thus have no effect on battery, data, memory, and storage space. You can wake up stopped apps by reopening them any time.
+Small preview versions of your photos.
+Start by adding a payment method
+Status
+Subscription activated
+Subscription bought elsewhere can be redeemed here
+Sunday
+Switch it on and never worry again — cleanup runs on your schedule.
+Switch it on and never worry again.
+System
+System Info
+System apps
+TRANSFER %d FILES
+TRY AGAIN
+Tap the toggle to allow usage access
+Temperature
+Temporary files
+Temporary files that are deep in your app settings and more difficult to remove.
+Temporary files that can be recreated.
+Temporary files that make ads work.
+The original photos that were used to create optimized duplicates.
+There are a few exception apps that can wake themselves up without being opened (like Facebook Messenger and some system apps), but most apps will stay force stopped until you need them.
+This allows us to clean caches, identify unused apps, and detect resource drainers.
+This allows us to give you tips about cleaning, apps, photos, etc. You can easily pick and choose what interests you once enabled.
+This app is supported by advertisement. You can remove it by becoming a subscriber.
+This code isn't valid or has already been used.
+This feature becomes available once enough time has passed to provide results.
+This is an essential permission for us to find and clean junk data, and categorize all photos, media, and files on your device.
+Thumbnails
+Thursday
+Times opened
+Tip %d
+Toggle view
+Trash
+Tuesday
+UNINSTALL
+UNLOCK WITH PREMIUM
+UPGRADE
+UPGRADE OPTIONS
+Unlimited protection for personal photos
+Unlock the Video Optimizer and cut your largest files down to size.
+Unnecessary data
+Unneeded files
+Unused
+Unused apps
+Up-time
+Upload files only on Wi-Fi
+Usage
+Usage access
+Usage access is needed to show screen time, launch counts and unused apps.
+Use a VPN to hide it from strangers and hackers.
+Use an activation code
+Use your AVG Account
+Used
+Used space
+Video
+Video Optimizer
+Visible caches
+We'll guide you through your first cleanup.
+We'll need you to allow some permissions so we can make AVG Cleaner work properly for you.
+Wednesday
+Weekly
+What does Auto Cleaning do?
+What is Custom dashboard?
+What is the purpose of Sleep Mode?
+What's the difference between Hidden and Visible caches?
+When you're ready to clean, Browser Cleaner navigates your device settings and taps on all the right buttons on your behalf. This automated process allows us to find and delete your browser data fast and safely.
+Why can't I automatically clean some categories?
+Why can't I clean my hidden cache automatically?
+Wi-fi
+YEARLY
+Yearly
+Yes! However, cleaning Google Search data may have some unintended consequences. Our testing showed you might need to grant some permissions again. Nothing destructive, just a bit inconvenient — that's why this item is never pre-selected for cleaning.
+Yes. Custom dashboard is included with Premium.
+Yes. Customize which tiles appear and their order.
+Yes. It only removes junk categories you allow — personal files stay untouched.
+Yes. You can set how often Auto Cleaning runs and which categories it includes.
+You can clean individual hidden caches by going to App detail > Clean cache in your system settings. Deep Clean does the same thing, but instead of one-by-one, it will clean all the apps you select at once.
+You have spent least time using %s
+You're all set and ready to clean!
+You're not signed in
+You're using the free version of Cleanup.
+You've freed %s with Cleaner so far.
+Your IP address is visible
+Your app diary
+Your payment information is only visible to Google.
+Your plan
+Your subscription renews unless canceled.
+Your trusted phone cleaner
+Zero ads
+and 
+freed up
+in our FAQ
+items
+used by apps

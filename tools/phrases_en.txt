@@ -1,0 +1,366 @@
+Your trusted phone cleaner
+Personalized advertising allows us to offer some features for free. If you upgrade, you won't see ads.
+Read more in our Consent Policy.
+CONTINUE WITH ADS
+UPGRADE
+Used space
+Free space
+START HERE
+We'll guide you through your first cleanup.
+Skip
+We'll need you to allow some permissions so we can make AVG Cleaner work properly for you.
+All files access
+This is an essential permission for us to find and clean junk data, and categorize all photos, media, and files on your device.
+In your system settings, tap the toggle to allow all files access for AVG Cleaner.
+GO TO SETTINGS
+Usage access
+This allows us to clean caches, identify unused apps, and detect resource drainers.
+Select AVG Cleaner+
+Tap the toggle to allow usage access
+Notifications
+This allows us to give you tips about cleaning, apps, photos, etc. You can easily pick and choose what interests you once enabled.
+ALLOW PERMISSION
+NOT NOW
+Granted
+Finding junk…
+You're all set and ready to clean!
+Give us access
+Scan for junk
+SEE RESULTS
+AVG recommends
+Get AVG Antivirus to help protect you from harmful viruses and malware.
+INSTALL FOR FREE
+Your IP address is visible
+Use a VPN to hide it from strangers and hackers.
+INSTALL VPN
+Automatic Cleaning
+Set up a schedule so AVG Cleaner can do its magic automatically.
+LEARN MORE
+Signed in on this device
+Sign in to use a connected subscription or receive account alerts on this device.
+MANAGE ACCOUNT
+Your plan
+Premium
+Free
+AVG Cleanup
+All features unlocked.
+Already have a subscription?
+Signed in
+Subscription bought elsewhere can be redeemed here
+See what you can do with this app
+Preferences
+Set up preferences for all your tools
+Set up theme to your liking
+Help & info
+Help & Feedback
+Contact us on our website
+About this app
+Open source
+End User Licence Agreement
+Open-source libraries
+Cleans browser data and hidden memory
+Clears browsing data and hidden web clutter
+Makes cleaning automatic, not manual
+Compresses images to reclaim space, keeps the memories
+Lighter videos, same moments
+Reduce Load
+Check device stats to keep your phone running smoothly.
+Reduces background load by putting apps to sleep
+More by AVG
+Discover other tools to protect your device and boost your privacy.
+Installed
+Not installed
+Device
+Android
+Model
+Network
+Network SSID
+IP address
+Bluetooth
+Mobile data
+Memory
+Internal storage
+SD card
+Status
+Not present
+Battery
+Level
+Temperature
+CPU activity
+Used
+Idle
+Available
+Allow file access
+Needed to show Photos, Audio, Video and Other files from this device.
+ALLOW
+Discover unused apps, storage hogs, and performance drainers.
+Shrink large photos, spot duplicates, and clear old or low-quality shots.
+Check what's taking up the most room and decide what to keep.
+Photo analysis
+Scanning photos…
+Similar photos
+Bad photos
+Screenshots
+Old photos
+Optimizable photos
+PREMIUM
+Apps Overview
+System
+used by apps
+Drainers
+Data
+Usage
+Last 7 days
+Usage access is needed to show screen time, launch counts and unused apps.
+GRANT ACCESS
+Times opened
+Screen time
+Unused
+Growing
+This feature becomes available once enough time has passed to provide results.
+UNLOCK WITH PREMIUM
+Notifying
+Notification access is needed to display apps sending you most notifications
+System apps
+All apps
+Unused apps
+Installed apps
+Size / Total size
+Name
+Last used
+Change sorting
+Filter
+DESELECT ALL
+SELECT ALL
+Scanning apps…
+APP INFO
+UNINSTALL
+Other files
+Bad quality
+Sensitive photos
+Optimizable images
+Date
+Size
+Toggle view
+Loading…
+Nothing found here.
+DELETE SELECTED
+Quick Clean settings
+Choose which categories to scan and review during every Quick Clean.
+Visible caches
+Browser data
+Residual files
+Installed APKs
+Ad caches
+Thumbnails
+Empty folders
+Trash
+Downloads
+Temporary files
+Large old files
+Find unwanted photos
+Scan SD card
+Priority of space saving tips
+Reorder
+Move up
+Move down
+Junk Cleaning
+Applications
+Notifications and Reports
+Enabled
+Disabled
+Frequency
+Reports
+New installs
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+Sunday
+Low storage
+Unnecessary data
+Growing apps
+Large files
+Large videos
+Cleaning tips
+Notification threshold
+App leftovers
+Battery monitoring
+Dropbox disconnected
+Dropbox connected
+Google Drive connected
+Choose account for AVG Cleaner
+Add account
+CANCEL
+Add a cloud storage
+Dropbox
+Google Drive
+DISCONNECT
+CONNECT
+Google Drive disconnected
+Delete files after transfer
+Upload files only on Wi-Fi
+Product Policy
+Improvements
+UPGRADE OPTIONS
+Switch it on and never worry again.
+SETTINGS
+Junk files
+Notification
+ABOUT AUTO CLEANING
+Optimized originals
+Images
+Documents
+Archives
+Daily
+Every 3 days
+Weekly
+Every 2 weeks
+Monthly
+Never
+Always
+Keep files for this long before cleaning
+SET THEME
+Allow all files access so Quick Clean can find and delete real junk.
+Couldn't finish the scan
+TRY AGAIN
+FINISH CLEANING
+Cleaning…
+freed up
+DONE
+Remove ads
+No advertisements in the app
+Removes hidden junk files
+Clean unimportant browser data
+Set once and never worry again
+Force stops apps you don't use
+Control size and quality of photos
+Direct support
+At your service
+App Locking
+Secure your sensitive apps
+Photo Vault
+Unlimited protection for personal photos
+Last Known Location
+Locate your device after it dies
+Ignore this offer
+YEARLY
+MONTHLY
+Premium Plus
+Cleanup Premium
+Get rid of clutter and unused files
+Security Premium
+Protect your phone from hackers
+By proceeding, you accept AVG's 
+Agreement
+CONTINUE
+Processing purchase...
+Google Play
+Start by adding a payment method
+Add credit or debit card
+Simulate successful purchase
+Billed monthly
+Close
+Save 10%
+Access these features:
+CONTINUE WITH PREMIUM
+Custom dashboard
+Get to know the Premium\nfeatures
+Feature
+Open this feature from Tools.
+Premium feature
+Yearly
+SAVE 72%
+Premium includes:
+From our customers
+FAQs
+Already purchased?
+Zero ads
+No advertisement in this app
+Set once, never worry again
+Clean unimportant Google data
+Custom Dashboard
+Get shortcuts to your favorite info
+Make your app match your style
+Avast Direct support
+Free up space fast — clear junk, tidy storage, and organize your device.
+Switch it on and never worry again — cleanup runs on your schedule.
+Improve your browsing experience by clearing out unnecessary data and hidden junk.
+Cut distractions by pausing multiple apps — no activity or notifications until you reopen them.
+Sign In
+Signed in as
+SIGN OUT
+Email
+Password
+Hide password
+Show password
+Enter a valid email address.
+Password must be at least 6 characters.
+Forgot password?
+Sign up
+SIGN IN WITH GOOGLE
+Use your AVG Account
+Use an activation code
+Restore from Google Play
+No Google Play purchases found
+in our FAQ
+Restoring purchases...
+Activation code
+ACTIVATE
+Enter a valid activation code.
+Subscription activated
+This code isn't valid or has already been used.
+Demo tip: use code AVG-DEMO to unlock Premium.
+Activating...
+Commercial break
+This app is supported by advertisement. You can remove it by becoming a subscriber.
+REMOVE ADS
+Almost ready...
+No cloud service connected
+MANAGE CLOUD SERVICES
+Connected services
+Connected
+Large files to move
+No large files found yet. Grant All files access and scan again.
+Preparing…
+SELECT FILES TO TRANSFER
+Before
+After (est.)
+No large photos found to optimize.
+OPTIMIZE PHOTOS
+FREE SPACE FROM SELECTED
+SELECT APPS
+OPEN QUICK CLEAN
+Gathering tips…
+Other
+QUICK CLEAN
+SHOW ALL
+SEE ALL DETAILS
+REVIEW AND CLEAN
+CHECK NOW
+OPTIMIZE
+Loading ad…
+Ad unavailable — tap X when ready
+Close ad
+What does Auto Cleaning do?
+Can I change the schedule?
+Is Auto Cleaning safe?
+How does it work?
+Is it safe to delete browsing records?
+Is it safe to delete search records?
+What is Custom dashboard?
+Can I rearrange shortcuts?
+Is this a Premium feature?
+What is the purpose of Sleep Mode?
+How does Force stop work?
+Should I be concerned about force stopping apps?
+Can force stopped apps restart by themselves?
+What's the difference between Hidden and Visible caches?
+How does Deep Clean work?
+Should I be concerned about deleting cache files?
+Why can't I automatically clean some categories?
+Why can't I clean my hidden cache automatically?
+Learn how we process your data in our 
+Add a payment method to your Google Account to complete your purchase.

@@ -1,0 +1,38 @@
+%d space saving tips
+Audio
+Browser Cleaner
+Browser data sizes are measured in Quick Clean. Open the locked Browser data row to jump into each browser's storage screen.
+Cloud Transfers
+Deep Clean
+Deep Clean walks hidden caches and browser leftovers. Start Quick Clean to review and remove what Android allows.
+Files to review
+Force stop stops all app processes on the spot. Usually you need to open your settings to Force stop each app one-by-one, but Sleep Mode lets you stop multiple apps at once.
+Get to know the Premium
+features
+Hidden caches
+items
+Large videos use the most space. Select clips to remove local copies after you've backed them up.
+Lighter videos, same moments. Free space by reviewing oversized clips.
+Media
+Nope! When you force stop apps, there's no risk of losing data, preferences, or account info.
+
+But don't forget — force stopped apps can't send you notifications or work in the background, so you shouldn't force stop apps that send important info (like security or messaging apps).
+Off
+On
+Photo Optimizer
+Photos
+Pick apps to force-stop. Android will confirm each one in system settings.
+PUT %d APPS TO SLEEP
+Quick Clean
+Shrink your photos and free up storage space while keeping the memories.
+Sleep Mode
+Sleep Mode uses Force stop action and puts apps to sleep until you need them again. Force stopped apps can't access system resources and thus have no effect on battery, data, memory, and storage space. You can wake up stopped apps by reopening them any time.
+System Info
+There are a few exception apps that can wake themselves up without being opened (like Facebook Messenger and some system apps), but most apps will stay force stopped until you need them.
+Tip %d
+TRANSFER %d FILES
+Unneeded files
+Up-time
+Video
+Video Optimizer
+Wi-fi
