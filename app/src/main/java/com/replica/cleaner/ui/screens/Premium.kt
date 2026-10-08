@@ -1783,19 +1783,30 @@ fun PremiumFeaturesScreen(
             modifier = Modifier.weight(1f),
             beyondViewportPageCount = 1
         ) { page ->
-            val item = pages[page]
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 28.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
+                val item = pages[page]
+                val ctaFill = if (colors.isDark) Color.Transparent else accent
+                val ctaBorder = if (colors.isDark) Color.White.copy(alpha = 0.85f) else accent
+                val ctaText = if (colors.isDark) Color.White else Color.White
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 28.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                Box(
+                    modifier = Modifier
+                        .size(260.dp)
+                        .clip(RoundedCornerShape(24.dp))
+                        .background(if (colors.isDark) Color.Transparent else colors.cardHigh),
+                    contentAlignment = Alignment.Center
+                ) {
                 FeatureTourIllustration(
                     kind = item.kind,
                     accent = accent,
                     modifier = Modifier.size(240.dp)
                 )
+                }
                 Spacer(Modifier.height(28.dp))
                 Text(
                     text = item.title,
@@ -1816,7 +1827,8 @@ fun PremiumFeaturesScreen(
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(50))
-                        .border(1.5.dp, Color.White.copy(alpha = 0.85f), RoundedCornerShape(50))
+                        .background(ctaFill)
+                        .border(1.5.dp, ctaBorder, RoundedCornerShape(50))
                         .clickable {
                             when (item.kind) {
                                 FeatureTourKind.PhotoOptimizer,
@@ -1831,7 +1843,7 @@ fun PremiumFeaturesScreen(
                         text = item.cta,
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = ctaText
                     )
                 }
             }

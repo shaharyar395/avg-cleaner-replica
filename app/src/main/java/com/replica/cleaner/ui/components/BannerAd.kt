@@ -53,12 +53,15 @@ fun HomeBannerAd(
     Box(
         modifier = modifier
             .fillMaxWidth()
+            .height(50.dp)
             .background(colors.card),
         contentAlignment = Alignment.Center
     ) {
         if (!failed) {
             AndroidView(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp),
                 factory = { ctx ->
                     val density = ctx.resources.displayMetrics
                     val adWidth = (density.widthPixels / density.density).toInt()

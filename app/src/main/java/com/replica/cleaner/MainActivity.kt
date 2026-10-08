@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
         // Hard-lock portrait — do not rotate/tilt with the device.
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         enableEdgeToEdge()
+        androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
 
         setContent {
@@ -62,5 +63,12 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.decorView.post { window.decorView.requestApplyInsets() }
     }
 }

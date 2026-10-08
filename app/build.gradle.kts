@@ -13,8 +13,8 @@ android {
         applicationId = "com.mob.ccleaner.storage.avg.cleaner.phone.androidcleaner"
         minSdk = 26
         targetSdk = 35
-        versionCode = 49
-        versionName = "1.0.48"
+        versionCode = 51
+        versionName = "1.0.50"
         vectorDrawables { useSupportLibrary = true }
         setProperty("archivesBaseName", "cleaner1")
     }
@@ -71,4 +71,7 @@ dependencies {
     implementation(libs.coil.video)
     implementation(libs.accompanist.permissions)
     implementation(libs.play.services.ads)
+    implementation(libs.media3.transformer)
+    implementation(libs.media3.effect)
+    implementation(libs.media3.common)
 }

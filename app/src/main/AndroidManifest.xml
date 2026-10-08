@@ -36,6 +36,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:name=".CleanerApp"
@@ -54,7 +55,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:configChanges="keyboard|keyboardHidden|screenSize|smallestScreenSize|screenLayout|uiMode"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|uiMode|density|fontScale|layoutDirection|locale"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.Cleaner"
             tools:replace="android:screenOrientation,android:configChanges">
@@ -86,6 +87,8 @@
         </intent>
         <package android:name="com.dropbox.android" />
         <package android:name="com.google.android.apps.docs" />
+        <package android:name="com.google.android.gms" />
+        <package android:name="com.google.android.gsf" />
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />

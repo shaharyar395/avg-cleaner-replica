@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -14,6 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.activity.compose.BackHandler
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -162,7 +165,9 @@ fun AppNavHost(
             NavHost(
                 navController = navController,
                 startDestination = Routes.SPLASH,
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f, fill = true)
+                    .fillMaxWidth()
             ) {
             // ---- first run (resets when user clears app data) ----
             composable(Routes.SPLASH) {
@@ -775,7 +780,7 @@ fun AppNavHost(
         }
 
         if (showHomeBanner) {
-            HomeBannerAd()
+            HomeBannerAd(modifier = Modifier.fillMaxWidth().height(50.dp))
         }
         if (showBottomBar) {
             CleanerBottomBar(

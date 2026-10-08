@@ -1,146 +1,124 @@
-# Cleaner — an AVG Cleaner replica
+# AVG Cleaner+ (1.0.48)
 
-A working Android app that re-creates the AVG Cleaner interface and behaviour from
-the screen recording: the dark navy shell, the Home dashboard, Quick Clean, Media
-Overview with photo analysis, Apps Overview, the space-saving tips feed, the full
-Settings tree, Themes, the paywall and the sign-in screen.
+Android phone cleaner inspired by AVG Cleaner: junk scan, media & apps cleanup, tips, settings, paywall, ads, and local account flows.
 
-Built with Kotlin + Jetpack Compose (Material 3), Navigation Compose, DataStore
-and WorkManager. Everything runs on device — no network calls, no analytics.
+**Version:** `1.0.48` (versionCode `49`)  
+**Package:** `com.mob.ccleaner.storage.avg.cleaner.phone.androidcleaner`  
+**Repo:** https://github.com/shaharyar395/avg-cleaner-replica  
+
+Privacy policy: https://sites.google.com/view/mob-apps-inc/privacy-policy  
 
 ---
 
-## Build status
-
-**Compiles clean.** `./gradlew clean assembleDebug` → `BUILD SUCCESSFUL`, zero
-errors, zero warnings, producing an 18.25 MB debug APK.
-
-Verified against:
+## Stack
 
 | | |
 |---|---|
-| JDK | Microsoft OpenJDK 17.0.20.1 |
-| Gradle | 8.9 (wrapper included) |
-| Android Gradle Plugin | 8.7.3 |
-| Kotlin | 2.0.21 |
-| compileSdk / targetSdk / minSdk | 35 / 35 / 26 |
-
-## Opening it
-
-1. Open the `avg-cleaner-replica` folder itself in Android Studio (Ladybug or
-   newer) or in Cursor — not its parent, or Gradle won't find
-   `settings.gradle.kts`.
-2. The Gradle wrapper **is** included (`gradlew`, `gradlew.bat`,
-   `gradle/wrapper/gradle-wrapper.jar`), so no separate Gradle install is needed.
-3. Create `local.properties` pointing at your SDK — Android Studio writes this
-   for you on first open:
-   ```properties
-   sdk.dir=C\:\\Users\\<you>\\AppData\\Local\\Android\\Sdk
-   ```
-4. Build from a terminal if you prefer:
-   ```bash
-   gradlew.bat assembleDebug
-   ```
-   Gradle downloads `platforms;android-35` and `build-tools;35.0.0`
-   automatically if they are missing.
-5. Run on a **physical device**. An emulator renders the UI fine, but it has no
-   real junk, no photo library and no app history, so most numbers read 0.
-
-### Grant the two special permissions
-
-Two of the three permissions are *special access* grants — Android will not show
-a runtime dialog for them, so the in-app "GO TO SETTINGS" buttons are the only
-route:
-
-- **All files access** → Settings › Apps › Special app access › All files access
-- **Usage access** → Settings › Apps › Special app access › Usage access
-
-Without All files access the junk scan finds almost nothing. Without Usage access
-every app size, screen-time figure and cache total reads 0.
+| Language / UI | Kotlin, Jetpack Compose (Material 3) |
+| Navigation | Navigation Compose |
+| Persistence | DataStore Preferences |
+| Background | WorkManager |
+| Ads | Google Mobile Ads (AdMob Mediation) |
+| Images | Coil |
+| JDK | 17 |
+| Gradle / AGP | 8.9 / 8.7.3 |
+| Kotlin | 2.2.0 |
+| SDK | compile / target **35**, min **26** |
 
 ---
 
-## What actually works
+## Features
 
-| Area | Status |
+### Cleaning & storage
+- **Quick Clean** — scan junk (caches, residual files, leftover APKs, ad caches, thumbnails, empty folders) and delete selected items
+- **Free space / used %** — live storage via `StatFs`
+- **Hidden caches / browser data** — measured where Android allows (deletion of other apps’ private caches is a platform limit)
+- **Downloads / files to review** — listed for review before delete
+- **Media Overview** — photos, video, audio, other files (MediaStore)
+- **Photo analysis** — similar, bad quality, sensitive (screenshots), old, optimizable (on-device)
+- **Apps Overview** — installed apps, usage, unused apps, App Manager uninstall / info
+- **Space-saving tips** — generated from live scans
+- **System Info** — device, network, RAM, storage
+- **Automatic Cleaning** — WorkManager schedule + notifications
+
+### Product UI
+- First-run: splash → get started → consent → permissions → scan → ready
+- Bottom tabs: Home, Tools, Storage, Account
+- Themes (dark / light / system + accent)
+- Multi-language strings (in-app language picker)
+- Premium paywall (first-run YEARLY plans vs upgrade “Ignore this offer” + exclusive 10% retention)
+- Sign-in / account picker (local session; Google UI flows without full OAuth backend)
+- Feature transition ads (interstitial + banner fallback overlay)
+
+### Ads (production — DATA CLEANER sheet)
+
+| Placement | Ad unit |
 |---|---|
-| Junk scan (visible caches, residual files, leftover APKs, ad caches, thumbnails, empty folders) | Real. Walks shared storage, reports real sizes, deletes real files. |
-| Hidden caches | Size is **real** (StorageStatsManager). Deletion is not possible — see *Known limits*. |
-| Browser data | Size is **real**. Deletion is not possible — see *Known limits*. |
-| Downloads / "files to review" | Real files, listed unticked so nothing goes by accident. |
-| Free space, used %, segmented bar | Real (`StatFs`). |
-| Media Overview counts and donut | Real (MediaStore). |
-| Photo analysis — similar / bad quality / sensitive / old / optimizable | Real, computed on device. See *How photo analysis works*. |
-| Photo, video, audio, other-file grids + delete | Real. Deletes through MediaStore. |
-| Apps Overview — installed/system counts, % used, drainers | Real (PackageManager + StorageStatsManager). |
-| Screen time, times opened, unused apps, weekly bar chart | Real (UsageStatsManager). |
-| App Manager — sort, multi-select, uninstall, app info | Real. Uninstall fires Android's own confirmation per package. |
-| Space-saving tips | Real — generated from the live scans, ordered by your Settings priority list. |
-| System Info | Real (Build, uptime, Wi-Fi, IP, Bluetooth, mobile data, RAM, storage). |
-| Settings tree, every toggle | Real, persisted in DataStore. |
-| Automatic Cleaning | Real. WorkManager job on the chosen cadence; cleans only ticked categories; posts a notification past the threshold. |
-| Notifications + channels | Real, one system channel per category. |
-| Themes (Dark / Light / System + accent) | Real, applied live and persisted. |
-| Onboarding, consent, permission screens | Real, driven by actual permission state. |
+| App ID | `ca-app-pub-9297250663056879~1961673643` |
+| Banner | `…/3270885884` |
+| Interstitial | `…/7217121324` |
+| Rewarded | `…/1770101953` |
+| App Open | `…/9162515973` |
+| Advanced Native | `…/9244518862` |
 
-## What is deliberately stubbed
-
-These are marked in the code and reachable in the UI, but they do not do the
-real thing yet:
-
-- **Billing.** Tapping CONTINUE on the paywall flips a local `premium` flag
-  (`Prefs.setPremium`). There is no Google Play Billing integration — that needs
-  a Play Console account, a signed build and real product IDs. Everything behind
-  the paywall unlocks, so you can exercise all of it. There is also a
-  *Simulate Premium* switch in Account › About this app.
-- **Sign in.** Stores a validated email locally so the Account tab shows a
-  signed-in state. No backend, and Google sign-in needs an OAuth client ID.
-- **Cloud services** (Dropbox / Drive / OneDrive). Rows and settings are there;
-  connecting needs each provider's OAuth client ID and SDK.
-- **Photo Optimizer / Video Optimizer / Sleep Mode.** Landing pages exist. Sleep
-  Mode in particular cannot be built with public APIs — see below.
-- **Illustrations.** The line-art drawings are represented by `IllustrationTile`,
-  a single composable in `Onboarding.kt`. Drop real vector assets in there and
-  every screen picks them up.
-
-## Known limits — things Android will not let any app do
-
-These are platform limits, not gaps in the code. The reference app hits exactly
-the same walls, which is why it locks these behind premium or an Accessibility
-Service:
-
-- **Clearing another app's cache.** There is no public API. `CLEAR_APP_CACHE` is
-  a system permission. This is why *Hidden caches* is measured but not deletable,
-  and why the row deep-links to that app's storage screen instead. AVG's "Deep
-  Clean" drives the system UI through an Accessibility Service.
-- **Clearing another app's browser data.** Same reason.
-- **Force-stopping apps** (Sleep Mode). No public API; same Accessibility Service
-  trick applies.
-- **Silent uninstall.** Every uninstall shows Android's own dialog.
-- **Per-app battery drain.** Not exposed since Android 8; the Battery drainer
-  tile uses foreground screen time as the closest legitimate proxy.
-
-If you want the Accessibility Service route, that is the single biggest piece of
-work left, and it needs a clear disclosure to users plus a Play Store
-justification — Google rejects Accessibility use that is not declared properly.
+IDs live in `app/src/main/res/values/strings.xml`. Banner + interstitial are wired in the UI; rewarded / app open / native IDs are reserved for later placements.
 
 ---
 
-## How photo analysis works
+## Build & run
 
-`PhotoAnalyzer` decodes each photo down to a 32×32 grayscale array, so a few
-hundred photos analyse in seconds and no pixels leave the device:
+### Requirements
+- Android Studio (Ladybug+) or command-line JDK 17 + Android SDK
+- Physical device recommended (real junk / photos / usage)
 
-- **Similar** — an 8×8 difference hash, grouped by Hamming distance ≤ 6.
-- **Bad quality** — variance of a 3×3 Laplacian (the standard cheap blur score),
-  plus a mean-luminance check for too-dark and blown-out shots.
-- **Sensitive** — screenshots, by bucket name and filename.
-- **Old** — added more than a year ago.
-- **Optimizable** — large pixel dimensions on a large file, worth re-encoding.
+### Open project
+Open the `avg-cleaner-replica` folder (not its parent) so Gradle finds `settings.gradle.kts`.
 
-Thresholds are constants at the top of the class. If it flags too much or too
-little on your library, `BLUR_THRESHOLD` and `SIMILAR_DISTANCE` are the two dials
-worth turning.
+Create `local.properties` if needed:
+
+```properties
+sdk.dir=C\:\\Users\\<you>\\AppData\\Local\\Android\\Sdk
+```
+
+### Build debug APK
+
+```bat
+gradlew.bat assembleDebug
+```
+
+Output:
+
+```
+app\build\outputs\apk\debug\cleaner1-debug.apk
+```
+
+Rename/copy for distribution as e.g. `AVG-Cleaner-plus-1.0.48.apk`.
+
+### Install via ADB
+
+```bat
+adb install -r app\build\outputs\apk\debug\cleaner1-debug.apk
+```
+
+Or push to device Download:
+
+```bat
+adb push app\build\outputs\apk\debug\cleaner1-debug.apk /sdcard/Download/AVG-Cleaner-plus-1.0.48.apk
+```
+
+---
+
+## Permissions
+
+| Permission | Why |
+|---|---|
+| All files access (`MANAGE_EXTERNAL_STORAGE`) | Junk scan & clean shared storage |
+| Usage access (`PACKAGE_USAGE_STATS`) | App sizes, screen time, unused apps |
+| Notifications | Cleaning tips & auto-clean alerts |
+| Media (images / video / audio) | Media grids & photo analysis |
+| Internet | AdMob + opening privacy / links |
+
+Special access (All files / Usage) has no runtime dialog — use in-app **GO TO SETTINGS**.
 
 ---
 
@@ -148,60 +126,54 @@ worth turning.
 
 ```
 app/src/main/java/com/replica/cleaner/
-├── MainActivity.kt            entry point, theme + nav host
-├── CleanerApp.kt              notification channels
-├── core/
-│   ├── Formatting.kt          byte/duration/date formatting
-│   ├── Permissions.kt         the three permissions + settings intents
-│   └── Prefs.kt               every setting, DataStore-backed
-├── data/
-│   ├── model/Models.kt        all domain types
-│   ├── scan/
-│   │   ├── JunkScanner.kt     filesystem walk, sizes, deletion
-│   │   ├── MediaScanner.kt    MediaStore queries + deletion
-│   │   ├── PhotoAnalyzer.kt   blur / duplicate / age heuristics
-│   │   ├── AppScanner.kt      PackageManager + UsageStats + StorageStats
-│   │   └── DeviceScanner.kt   storage totals, System Info
-│   ├── TipsEngine.kt          builds the numbered tip cards
-│   └── CleanerRepository.kt   single entry point, caches the last scan
-├── work/
-│   ├── AutoCleanWorker.kt     scheduled cleaning
-│   ├── Notifications.kt       channels + posting
-│   └── BootReceiver.kt        re-arms the schedule after reboot
+├── MainActivity.kt / CleanerApp.kt
+├── ads/                 AdMob init + interstitial manager
+├── core/                Prefs, Permissions, formatting
+├── data/                Repository + scanners (junk, media, apps, device, photos)
+├── work/                Auto-clean, notifications, boot receiver
+├── l10n/                Translations
 └── ui/
-    ├── CleanerViewModel.kt    all screen state
-    ├── theme/                 colours, typography, light/dark + accents
-    ├── components/            cards, rows, buttons, charts, scaffolds
-    ├── nav/                   routes + nav graph
-    └── screens/               one file per area
+    ├── nav/             Routes + AppNavHost + feature transition ads
+    ├── components/      Banner, charts, scaffolds, overlays
+    ├── screens/         Home, Tools, Storage, Account, Premium, Auth, …
+    ├── theme/
+    └── util/            Privacy policy helper
 ```
-
-`CleanerViewModel` holds every piece of screen state, and `CleanerRepository`
-caches the last scan so moving between Home, Quick Clean, Storage and Tips does
-not re-walk the filesystem. A clean invalidates that cache.
 
 ---
 
-## Things worth doing next
+## Stubbed / not production-complete
 
-In rough order of payoff:
+- **Play Billing** — CONTINUE on paywall sets a local `premium` flag (no real Google Play products yet)
+- **Google / social auth** — UI + local email session; no full OAuth backend
+- **Cloud providers** (Dropbox / Drive / OneDrive) — UI only
+- **Firebase / Crashlytics** — package reserved; needs `app/google-services.json` from the MOBAPPS Drive folder
+- **AppLovin MAX** — not used (sheet selects AdMob Mediation only)
+- **Sleep Mode / deep force-stop** — not possible with public APIs without Accessibility Service
 
-1. Run it on a device and check the junk scan numbers against a known folder.
-   The build is verified but the *runtime behaviour* is not — nothing here has
-   been exercised on real hardware yet. `JunkScanner.MAX_DEPTH` (12) and the
-   `AD_CACHE_HINTS` list are the two things most likely to need tuning for your
-   storage layout.
-2. Real vector illustrations in `IllustrationTile`.
-3. Google Play Billing, replacing the `vm.setPremium(true)` call in
-   `PremiumScreen`.
-4. Per-item file icons in Quick Clean (currently a coloured placeholder square).
-5. `Prefs.language` is stored but not applied — wiring it means
-   `AppCompatDelegate.setApplicationLocales` plus translated `strings.xml`.
-6. Tests. There are none. `PhotoAnalyzer.dHash` / `laplacianVariance` and
-   `Formatting.kt` are pure functions and the obvious first targets.
+---
+
+## Platform limits (Android)
+
+- Cannot clear another app’s private cache via public APIs
+- Cannot silently uninstall or force-stop other apps
+- Per-app battery drain is not exposed; screen-time is used as a proxy
+
+---
 
 ## Privacy
 
-Every scan is local. File paths, photo pixels and app usage never leave the
-device. There is no analytics SDK, no crash reporter and no network permission
-use beyond opening a Play Store link.
+- Junk / media / photo analysis run on device
+- Privacy Policy link opens the MOBAPPS URL above from Settings and legal footers
+- AdMob serves ads (requires network); Firebase not integrated until `google-services.json` is added
+
+---
+
+## APK artifact (1.0.48)
+
+| | |
+|---|---|
+| Display name | AVG Cleaner+ |
+| applicationId | `com.mob.ccleaner.storage.avg.cleaner.phone.androidcleaner` |
+| versionName / versionCode | `1.0.48` / `49` |
+| Typical debug output | `cleaner1-debug.apk` → distribute as `AVG-Cleaner-plus-1.0.48.apk` |

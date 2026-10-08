@@ -17,6 +17,7 @@ import com.replica.cleaner.data.scan.JunkScanner
 import com.replica.cleaner.data.scan.MediaScanner
 import com.replica.cleaner.data.scan.PhotoAnalyzer
 import com.replica.cleaner.data.scan.PhotoOptimizer
+import com.replica.cleaner.data.scan.VideoOptimizer
 
 /**
  * One place the UI talks to. Holds the last scan in memory so moving between
@@ -31,6 +32,7 @@ class CleanerRepository(context: Context) {
     private val mediaScanner = MediaScanner(appContext)
     private val photoAnalyzer = PhotoAnalyzer(appContext)
     private val photoOptimizer = PhotoOptimizer(appContext)
+    private val videoOptimizer = VideoOptimizer(appContext)
     val appScanner = AppScanner(appContext)
     private val deviceScanner = DeviceScanner(appContext)
 
@@ -85,6 +87,17 @@ class CleanerRepository(context: Context) {
             if (it.freedBytes > 0) {
                 prefs.recordClean(it.freedBytes)
                 lastPhotos = null
+                lastMedia = null
+            }
+        }
+
+    suspend fun optimizeVideos(
+        files: List<MediaFile>,
+        onProgress: (Float, String) -> Unit = { _, _ -> }
+    ): VideoOptimizer.Outcome =
+        videoOptimizer.optimize(files, onProgress = onProgress).also {
+            if (it.freedBytes > 0) {
+                prefs.recordClean(it.freedBytes)
                 lastMedia = null
             }
         }

@@ -285,7 +285,7 @@ fun PhotoOptimizerScreen(vm: CleanerViewModel, onBack: () -> Unit, onUpgrade: ()
     }
     LaunchedEffect(photos) {
         files = photos?.optimizable.orEmpty().ifEmpty {
-            vm.images(400).filter { it.sizeBytes >= 1_500_000L }
+            vm.images(400).filter { it.sizeBytes >= 400_000L }
         }
         selected = files.map { it.uri.toString() }.toSet()
     }
@@ -469,9 +469,12 @@ fun VideoOptimizerScreen(vm: CleanerViewModel, onBack: () -> Unit, onUpgrade: ()
     var files by remember { mutableStateOf<List<MediaFile>>(emptyList()) }
     var selected by remember { mutableStateOf<Set<String>>(emptySet()) }
     var status by remember { mutableStateOf<String?>(null) }
+    var running by remember { mutableStateOf(false) }
+    var progress by remember { mutableFloatStateOf(0f) }
+    var label by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit) {
-        files = vm.videos(300).filter { it.sizeBytes >= 20_000_000L }
+        files = vm.videos(300).filter { it.sizeBytes >= 8_000_000L }
             .sortedByDescending { it.sizeBytes }
         selected = files.take(10).map { it.uri.toString() }.toSet()
     }
@@ -496,11 +499,25 @@ fun VideoOptimizerScreen(vm: CleanerViewModel, onBack: () -> Unit, onUpgrade: ()
     ) {
         CleanerTopBar(tr("Video Optimizer"), onBack = onBack, centered = false)
         Text(
-            tr("Large videos use the most space. Select clips to remove local copies after you've backed them up."),
+            tr("Large videos use the most space. Optimize selected clips to a smaller 720p file."),
             style = MaterialTheme.typography.bodySmall,
             color = colors.textSecondary,
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 8.dp)
         )
+        if (running) {
+            Column(
+                Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text("${(progress * 100).toInt()}%", style = MaterialTheme.typography.displayMedium)
+                Spacer(Modifier.height(12.dp))
+                LinearProgressIndicator(progress = { progress }, modifier = Modifier.fillMaxWidth(0.7f))
+                Spacer(Modifier.height(12.dp))
+                Text(label, color = colors.textSecondary, maxLines = 1)
+            }
+            return
+        }
         status?.let {
             Text(it, color = MaterialTheme.colorScheme.primary, modifier = Modifier.padding(horizontal = 20.dp))
         }
@@ -558,14 +575,25 @@ fun VideoOptimizerScreen(vm: CleanerViewModel, onBack: () -> Unit, onUpgrade: ()
             )
             Spacer(Modifier.height(8.dp))
             PrimaryButton(
-                text = tr("FREE SPACE FROM SELECTED"),
+                text = tr("OPTIMIZE VIDEOS"),
                 enabled = selectedFiles.isNotEmpty(),
                 onClick = {
-                    vm.deleteMedia(selectedFiles) { freed ->
-                        status = "Freed ${formatBytes(freed)}"
-                        files = files - selectedFiles.toSet()
-                        selected = emptySet()
-                    }
+                    running = true
+                    progress = 0f
+                    vm.optimizeVideos(
+                        files = selectedFiles,
+                        onProgress = { p, name ->
+                            progress = p
+                            label = name
+                        },
+                        onDone = { freed, ok, failed ->
+                            running = false
+                            status = "Optimized $ok videos · freed ${formatBytes(freed)}" +
+                                if (failed > 0) " · $failed skipped" else ""
+                            selected = emptySet()
+                            files = files.filterNot { it in selectedFiles }
+                        }
+                    )
                 }
             )
         }

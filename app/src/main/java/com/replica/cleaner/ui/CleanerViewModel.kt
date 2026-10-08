@@ -340,6 +340,16 @@ class CleanerViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    fun optimizeVideos(files: List<MediaFile>, onProgress: (Float, String) -> Unit, onDone: (Long, Int, Int) -> Unit) {
+        viewModelScope.launch {
+            val outcome = repo.optimizeVideos(files, onProgress)
+            _media.value = null
+            loadMedia(force = true)
+            refreshStorage()
+            onDone(outcome.freedBytes, outcome.optimized, outcome.failed)
+        }
+    }
+
     // ---- apps -----------------------------------------------------------
 
     fun loadApps(force: Boolean = false) {

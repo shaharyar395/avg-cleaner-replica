@@ -1,16 +1,21 @@
 package com.replica.cleaner.data.scan
 
+import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Build
+import android.os.Environment
 import android.provider.MediaStore
 import com.replica.cleaner.data.model.MediaFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 /**
  * Re-encodes photos as JPEG at a lower quality / capped long edge so the
@@ -26,15 +31,16 @@ class PhotoOptimizer(private val context: Context) {
 
     suspend fun optimize(
         files: List<MediaFile>,
-        quality: Int = 72,
-        maxEdge: Int = 1920,
+        quality: Int = 58,
+        maxEdge: Int = 1600,
         onProgress: (Float, String) -> Unit = { _, _ -> }
     ): Outcome = withContext(Dispatchers.IO) {
         var freed = 0L
         var ok = 0
         var failed = 0
+        val total = files.size.coerceAtLeast(1)
         files.forEachIndexed { index, file ->
-            onProgress(index / files.size.coerceAtLeast(1).toFloat(), file.name)
+            onProgress(index / total.toFloat(), file.name)
             val result = runCatching { recompress(file, quality, maxEdge) }.getOrNull()
             if (result != null && result > 0) {
                 freed += result
@@ -53,7 +59,7 @@ class PhotoOptimizer(private val context: Context) {
         val originalSize = file.sizeBytes.coerceAtLeast(1L)
 
         val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        resolver.openInputStream(file.uri)?.use { BitmapFactory.decodeStream(it, null, bounds) }
+        openStream(file)?.use { BitmapFactory.decodeStream(it, null, bounds) }
         if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return 0L
 
         val longest = maxOf(bounds.outWidth, bounds.outHeight)
@@ -62,33 +68,74 @@ class PhotoOptimizer(private val context: Context) {
             inSampleSize = sample.coerceAtLeast(1)
             inPreferredConfig = Bitmap.Config.ARGB_8888
         }
-        val decoded = resolver.openInputStream(file.uri)?.use {
+        val decoded = openStream(file)?.use {
             BitmapFactory.decodeStream(it, null, opts)
         } ?: return 0L
 
         val scaled = scaleDown(decoded, maxEdge)
         if (scaled != decoded) decoded.recycle()
 
-        val bytes = ByteArrayOutputStream()
-        val compressed = scaled.compress(Bitmap.CompressFormat.JPEG, quality.coerceIn(40, 95), bytes)
-        scaled.recycle()
-        if (!compressed) return 0L
-        val data = bytes.toByteArray()
-        if (data.size >= originalSize) return 0L
+        fun jpegBytes(q: Int): ByteArray {
+            val bytes = ByteArrayOutputStream()
+            scaled.compress(Bitmap.CompressFormat.JPEG, q.coerceIn(35, 92), bytes)
+            return bytes.toByteArray()
+        }
 
-        // Prefer in-place overwrite when the provider allows it.
+        var data = jpegBytes(quality)
+        if (data.size >= originalSize) data = jpegBytes(48)
+        if (data.size >= originalSize) {
+            val tighter = scaleDown(scaled, 1280)
+            if (tighter != scaled) {
+                scaled.recycle()
+                data = ByteArrayOutputStream().also {
+                    tighter.compress(Bitmap.CompressFormat.JPEG, 45, it)
+                }.toByteArray()
+                tighter.recycle()
+            } else {
+                scaled.recycle()
+            }
+        } else {
+            scaled.recycle()
+        }
+        if (data.isEmpty() || data.size >= originalSize) return 0L
+
+        val path = resolvePath(file.uri)
+        if (!path.isNullOrBlank()) {
+            val target = File(path)
+            if (target.exists() && target.canWrite()) {
+                val tmp = File(target.parentFile, ".opt_${target.name}.tmp")
+                FileOutputStream(tmp).use { it.write(data) }
+                if (!tmp.renameTo(target)) {
+                    target.delete()
+                    tmp.renameTo(target)
+                }
+                MediaScannerConnection.scanFile(
+                    context,
+                    arrayOf(target.absolutePath),
+                    arrayOf("image/jpeg"),
+                    null
+                )
+                return originalSize - target.length()
+            }
+        }
+
         val wroteInPlace = try {
-            resolver.openOutputStream(file.uri, "wt")?.use { out ->
+            resolver.openOutputStream(file.uri, "rwt")?.use { out ->
                 out.write(data)
                 out.flush()
             } != null
         } catch (_: Exception) {
-            false
+            try {
+                resolver.openOutputStream(file.uri)?.use { out ->
+                    out.write(data)
+                    out.flush()
+                } != null
+            } catch (_: Exception) {
+                false
+            }
         }
-
         if (wroteInPlace) return originalSize - data.size
 
-        // Fallback: insert a new optimized image and delete the original.
         val values = ContentValues().apply {
             put(MediaStore.Images.Media.DISPLAY_NAME, optimizedName(file.name))
             put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
@@ -109,12 +156,43 @@ class PhotoOptimizer(private val context: Context) {
                 values.put(MediaStore.Images.Media.IS_PENDING, 0)
                 resolver.update(target, values, null, null)
             }
-            resolver.delete(file.uri, null, null)
+            runCatching { resolver.delete(file.uri, null, null) }
             originalSize - data.size
         } catch (_: Exception) {
             runCatching { resolver.delete(target, null, null) }
             0L
         }
+    }
+
+    private fun openStream(file: MediaFile) =
+        context.contentResolver.openInputStream(file.uri)
+            ?: file.uri.path?.let { File(it).takeIf { f -> f.exists() }?.inputStream() }
+
+    private fun resolvePath(uri: Uri): String? {
+        if (uri.scheme == "file") return uri.path
+        return runCatching {
+            context.contentResolver.query(
+                uri,
+                arrayOf(MediaStore.MediaColumns.DATA),
+                null,
+                null,
+                null
+            )?.use { c ->
+                if (c.moveToFirst()) c.getString(0) else null
+            }
+        }.getOrNull()?.takeIf { !it.isNullOrBlank() && File(it).exists() }
+            ?: runCatching {
+                if (uri.authority?.contains("media") == true) {
+                    val id = ContentUris.parseId(uri)
+                    context.contentResolver.query(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                        arrayOf(MediaStore.MediaColumns.DATA),
+                        "${MediaStore.Images.Media._ID}=?",
+                        arrayOf(id.toString()),
+                        null
+                    )?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
+                } else null
+            }.getOrNull()
     }
 
     private fun scaleDown(src: Bitmap, maxEdge: Int): Bitmap {

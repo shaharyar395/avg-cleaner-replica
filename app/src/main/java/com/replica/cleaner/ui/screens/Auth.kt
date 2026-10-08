@@ -41,6 +41,7 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -110,18 +111,6 @@ fun SignInScreen(
     var busy by remember { mutableStateOf(false) }
     var showGooglePicker by remember { mutableStateOf(false) }
 
-    val addAccountLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {
-        showGooglePicker = true
-    }
-
-    fun validEmail(value: String) = value.contains("@") && value.contains(".")
-
-    fun openGooglePicker() {
-        showGooglePicker = true
-    }
-
     fun completeGoogleSignIn(accountEmail: String) {
         busy = true
         scope.launch {
@@ -130,6 +119,51 @@ fun SignInScreen(
             busy = false
             showGooglePicker = false
             onSignedIn()
+        }
+    }
+
+    val addAccountLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        showGooglePicker = true
+    }
+
+    val googleChooserLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        val name = result.data?.getStringExtra(AccountManager.KEY_ACCOUNT_NAME)
+        if (!name.isNullOrBlank()) {
+            completeGoogleSignIn(name)
+        } else {
+            showGooglePicker = true
+        }
+    }
+
+    fun validEmail(value: String) = value.contains("@") && value.contains(".")
+
+    fun openGooglePicker() {
+        val accounts = runCatching {
+            AccountManager.get(context).getAccountsByType("com.google").map { it.name }
+        }.getOrDefault(emptyList())
+        if (accounts.size == 1) {
+            completeGoogleSignIn(accounts.first())
+            return
+        }
+        val chooser = runCatching {
+            AccountManager.newChooseAccountIntent(
+                null,
+                null,
+                arrayOf("com.google"),
+                null,
+                null,
+                null,
+                null
+            )
+        }.getOrNull()
+        if (chooser != null) {
+            googleChooserLauncher.launch(chooser)
+        } else {
+            showGooglePicker = true
         }
     }
 
@@ -849,8 +883,9 @@ private fun GoogleAccountPickerDialog(
     onAddAccount: () -> Unit
 ) {
     val context = LocalContext.current
-    val accounts = remember {
-        runCatching {
+    var accounts by remember { mutableStateOf<List<String>>(emptyList()) }
+    LaunchedEffect(Unit) {
+        accounts = runCatching {
             AccountManager.get(context).getAccountsByType("com.google").map { it.name }
         }.getOrDefault(emptyList())
     }
@@ -1018,12 +1053,17 @@ private fun AuthField(
 
 @Composable
 private fun GoogleSignInButton(onClick: () -> Unit, enabled: Boolean) {
+    val colors = LocalCleanerColors.current
+    val outline = if (colors.isDark) Color.White.copy(alpha = 0.85f) else Color(0xFFDADCE0)
+    val fill = if (colors.isDark) Color.Transparent else Color.White
+    val label = if (colors.isDark) Color.White else Color(0xFF3C4043)
     Row(
         Modifier
             .fillMaxWidth()
             .height(48.dp)
             .clip(RoundedCornerShape(50))
-            .border(1.dp, Color.White.copy(alpha = 0.85f), RoundedCornerShape(50))
+            .background(fill)
+            .border(1.dp, outline, RoundedCornerShape(50))
             .clickable(enabled = enabled, onClick = onClick)
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -1035,7 +1075,7 @@ private fun GoogleSignInButton(onClick: () -> Unit, enabled: Boolean) {
             tr("SIGN IN WITH GOOGLE"),
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.Bold,
-            color = Color.White
+            color = label
         )
     }
 }
